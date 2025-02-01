@@ -62,9 +62,10 @@ const Homepage: React.FC = () => {
               alt="Organization Logo"
               className="w-10 h-10 rounded-full"
             />
-             <button
+            <button
               onClick={() => setActiveSection('home')}
               className="text-white/80 hover:text-white text-xl transition-colors duration-300"
+              title="Go to Home"
             >
               Harry
             </button>
@@ -74,12 +75,14 @@ const Homepage: React.FC = () => {
             <button
               onClick={() => setActiveSection('gallery')}
               className={`text-white/80 hover:text-white ${activeSection === 'gallery' ? 'border-b-2' : ''}`}
+              title="View Gallery"
             >
               <Camera className="w-5 h-5" />
             </button>
             <button
               onClick={() => setActiveSection('research')}
               className={`text-white/80 hover:text-white ${activeSection === 'research' ? 'border-b-2' : ''}`}
+              title="View Research"
             >
               <BookOpen className="w-5 h-5" />
             </button>
