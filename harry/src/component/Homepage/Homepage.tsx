@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Cherry, Volume2, Scroll, Camera, BookOpen } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
-import {  quotes, research, socialLinks } from '../../quotes/Quotes';
+import { quotes, socialLinks } from '../../quotes/Quotes';
 import { galleryImages } from '../../../gallery/Gallery';
-
+import ResearchSection from '../research/ResearchSection'; 
 
 const Homepage: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [currentQuote, setCurrentQuote] = useState(0);
   const [activeSection, setActiveSection] = useState('home');
-
-
 
   useEffect(() => {
     setMounted(true);
@@ -73,7 +71,6 @@ const Homepage: React.FC = () => {
             </button>
           </div>
           <div className="flex items-center space-x-6">
-            
             <button
               onClick={() => setActiveSection('gallery')}
               className={`text-white/80 hover:text-white ${activeSection === 'gallery' ? 'border-b-2' : ''}`}
@@ -157,19 +154,7 @@ const Homepage: React.FC = () => {
           </div>
         )}
 
-        {activeSection === 'research' && (
-          <div className="max-w-4xl mx-auto px-6 py-24">
-            <h2 className="text-3xl font-bold text-white/90 mb-8 text-center">Research</h2>
-            <div className="space-y-8">
-              {research.map((item, index) => (
-                <div key={index} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                  <h3 className="text-xl font-medium text-white/90 mb-3">{item.title}</h3>
-                  <p className="text-white/70">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {activeSection === 'research' && <ResearchSection />}
 
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
           <Scroll className="w-6 h-6 text-white/40 animate-bounce" />
