@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Beaker, GitBranch, ExternalLink, ChevronDown } from 'lucide-react';
+import { Beaker, GitBranch, ExternalLink, ChevronDown, BookOpen } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
 
 interface ResearchItem {
@@ -174,6 +175,13 @@ const ResearchSection: React.FC<ResearchSectionProps> = ({ className = '' }) => 
                       ))}
                     </div>
                   </div>
+                  <Link
+                to={`/research/paper/quantum-computing`}
+                className="inline-flex items-center px-4 py-2 bg-blue-500/10 text-blue-400 rounded-lg hover:bg-blue-500/20 transition-colors duration-200 mt-4"
+              >
+                <BookOpen className="w-4 h-4 mr-2" />
+                Read Full Paper
+              </Link>
                 </CardContent>
               </Card>
             ))}
