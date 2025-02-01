@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Github, Mail, Linkedin, FileText } from 'lucide-react';
 
+// Enhanced falling petals with more natural movement
 function FallingPetals() {
   return (
     <div className="fixed inset-0 pointer-events-none">
       {[...Array(50)].map((_, i) => (
         <div
           key={i}
-          className="absolute animate-falling"
+          className="absolute animate-[float_20s_linear_infinite]"
           style={{
             left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 15}s`,
-            animationDuration: `${15 + Math.random() * 10}s`,
-            transform: `scale(${0.2 + Math.random() * 0.3})`
+            top: `-${Math.random() * 20}%`,
+            animationDelay: `${Math.random() * 20}s`,
+            transform: `rotate(${Math.random() * 360}deg) scale(${0.3 + Math.random() * 0.4})`
           }}
         >
-          <div className="w-3 h-3 rounded-full bg-pink-100/30" />
+          <div 
+            className="w-4 h-4 rounded-full bg-pink-200/20 animate-pulse"
+            style={{
+              filter: 'blur(1px)',
+              animationDuration: `${2 + Math.random() * 3}s`
+            }}
+          />
         </div>
       ))}
     </div>
@@ -23,11 +30,17 @@ function FallingPetals() {
 }
 
 function Homepage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Video Background */}
+    <div className="relative min-h-screen overflow-hidden bg-gray-900">
+      {/* Video Background with reduced opacity */}
       <video
-        className="fixed inset-0 w-full h-full object-cover"
+        className="fixed inset-0 w-full h-full object-cover opacity-60"
         autoPlay
         loop
         muted
@@ -36,62 +49,53 @@ function Homepage() {
         <source src="live_scenic_wallpaper/street.mp4" type="video/mp4" />
       </video>
 
-      {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/20 to-blue-900/30" />
+      {/* Improved gradient overlay with smoother animation */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/30 to-blue-900/40 animate-[gradient_8s_ease-in-out_infinite]" />
 
       <FallingPetals />
 
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center backdrop-blur-[2px]">
-        <div className="text-center px-4 bg-black/20 py-16 rounded-3xl backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-black/30">
-          <div className="text-3xl mb-4 font-light text-purple-300 animate-pulse">›_</div>
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text hover:scale-105 transform transition-all duration-300">
-            Your Name
+      <div className={`relative z-10 min-h-screen flex flex-col items-center justify-center transition-all duration-1000 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="text-center p-8 md:p-16 bg-black/30 rounded-3xl backdrop-blur-md border border-white/10 transition-all duration-500 hover:bg-black/40 hover:scale-102 hover:shadow-2xl hover:shadow-purple-500/30">
+          {/* Terminal cursor with smooth blink animation */}
+          <div className="text-3xl mb-6 font-light text-purple-300 animate-[blink_1.2s_ease-in-out_infinite]">›_</div>
+
+          {/* Name with enhanced gradient animation */}
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-300% bg-clip-text text-transparent animate-[gradient-x_3s_linear_infinite] hover:scale-105 transition-transform duration-300">
+            Harshit Singh
           </h1>
-          <p className="text-2xl mb-12 font-light tracking-wide bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 text-transparent bg-clip-text hover:scale-105 transform transition-all duration-300">
-            Full Stack Developer
+
+          {/* Subtitle with smooth reveal */}
+          <p className="text-xl md:text-2xl mb-12 font-light tracking-wide text-gray-200 opacity-90 hover:opacity-100 transition-opacity duration-300">
+            I do Code
           </p>
 
-          <div className="flex justify-center items-center space-x-16">
-            <a
-              href="#"
-              className="group relative p-3 rounded-lg hover:bg-white/10 transition-all duration-300"
-            >
-              <Github 
-                size={28} 
-                strokeWidth={1.5} 
-                className="text-blue-300 group-hover:text-blue-400 group-hover:scale-125 transform transition-all duration-300" 
-              />
-            </a>
-            <a
-              href="#"
-              className="group relative p-3 rounded-lg hover:bg-white/10 transition-all duration-300"
-            >
-              <Linkedin 
-                size={28} 
-                strokeWidth={1.5} 
-                className="text-purple-300 group-hover:text-purple-400 group-hover:scale-125 transform transition-all duration-300" 
-              />
-            </a>
-            <a
-              href="#"
-              className="group relative p-3 rounded-lg hover:bg-white/10 transition-all duration-300"
-            >
-              <Mail 
-                size={28} 
-                strokeWidth={1.5} 
-                className="text-pink-300 group-hover:text-pink-400 group-hover:scale-125 transform transition-all duration-300" 
-              />
-            </a>
-            <a
-              href="#"
-              className="group relative p-3 rounded-lg hover:bg-white/10 transition-all duration-300"
-            >
-              <FileText 
-                size={28} 
-                strokeWidth={1.5} 
-                className="text-rose-300 group-hover:text-rose-400 group-hover:scale-125 transform transition-all duration-300" 
-              />
-            </a>
+          {/* Social icons with enhanced hover effects */}
+          <div className="flex justify-center items-center space-x-8 md:space-x-16">
+            {[
+              { Icon: Github, color: 'blue', href: '#' },
+              { Icon: Linkedin, color: 'purple', href: '#' },
+              { Icon: Mail, color: 'pink', href: '#' },
+              { Icon: FileText, color: 'rose', href: '#' }
+            ].map(({ Icon, color, href }, index) => (
+              <a
+                key={index}
+                href={href}
+                className={`group relative p-4 rounded-xl hover:bg-white/5 transition-all duration-300
+                  ${mounted ? 'animate-[fadeIn_0.5s_ease-out_forwards]' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <Icon
+                  size={32}
+                  strokeWidth={1.5}
+                  className={`text-${color}-300 group-hover:text-${color}-400 transition-all duration-300
+                    group-hover:scale-110 group-hover:rotate-3`}
+                />
+                <div className={`absolute -inset-1 bg-${color}-400/10 rounded-xl 
+                  blur opacity-0 group-hover:opacity-100 transition-all duration-300
+                  group-hover:blur-md`} 
+                />
+              </a>
+            ))}
           </div>
         </div>
       </div>
