@@ -3,7 +3,7 @@ import { Cherry, Volume2, Scroll, Camera, BookOpen } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
 import { quotes, socialLinks } from '../../quotes/Quotes';
 import { galleryImages } from '../../../gallery/Gallery';
-import ResearchSection from '../research/ResearchSection'; 
+import ResearchSection from './ResearchSection'; 
 
 const Homepage: React.FC = () => {
   const [mounted, setMounted] = useState(false);
