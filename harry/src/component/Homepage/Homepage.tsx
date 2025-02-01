@@ -58,7 +58,7 @@ const Homepage: React.FC = () => {
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
             <img
-              src="/api/placeholder/40/40"
+              src="/logo/harry.jpg"
               alt="Organization Logo"
               className="w-10 h-10 rounded-full"
             />
