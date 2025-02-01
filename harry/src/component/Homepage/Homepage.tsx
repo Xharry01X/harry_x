@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Cherry, Volume2, Scroll, Camera, BookOpen } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
-import { galleryImages, quotes, research, socialLinks } from '../../quotes/Quotes';
+import {  quotes, research, socialLinks } from '../../quotes/Quotes';
+import { galleryImages } from '../../../gallery/Gallery';
+
 
 const Homepage: React.FC = () => {
   const [mounted, setMounted] = useState(false);

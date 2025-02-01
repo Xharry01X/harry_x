@@ -42,12 +42,7 @@ export const quotes = [
     }
   ];
 
-  export  const galleryImages = [
-    { src: "/api/placeholder/400/300", alt: "Project 1", title: "Research Project 1" },
-    { src: "/api/placeholder/400/300", alt: "Project 2", title: "Research Project 2" },
-    { src: "/api/placeholder/400/300", alt: "Project 3", title: "Research Project 3" },
-    { src: "/api/placeholder/400/300", alt: "Project 4", title: "Research Project 4" }
-  ];
+ 
 
   export const research = [
     {
