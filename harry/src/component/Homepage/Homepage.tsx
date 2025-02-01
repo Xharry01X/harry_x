@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Cherry, Volume2, Scroll, Camera, BookOpen } from 'lucide-react';
+import { Cherry, Volume2, Scroll } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
 import { quotes, socialLinks } from '../../quotes/Quotes';
 import { galleryImages } from '../../../gallery/Gallery';
-import ResearchSection from './ResearchSection'; 
 
-const Homepage: React.FC = () => {
+interface HomepageProps {
+  activeSection?: 'home' | 'gallery';
+}
+
+const Homepage: React.FC<HomepageProps> = ({ activeSection = 'home' }) => {
   const [mounted, setMounted] = useState(false);
   const [currentQuote, setCurrentQuote] = useState(0);
-  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     setMounted(true);
@@ -52,43 +54,6 @@ const Homepage: React.FC = () => {
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-950/60 animate-[gradient_8s_ease-in-out_infinite]" />
-
-      {/* Header with Navigation */}
-      <div className="fixed top-0 w-full z-20 p-6">
-        <div className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="flex items-center space-x-4">
-            <img
-              src="/logo/harry.jpg"
-              alt="Organization Logo"
-              className="w-10 h-10 rounded-full"
-            />
-            <button
-              onClick={() => setActiveSection('home')}
-              className="text-white/80 hover:text-white text-xl transition-colors duration-300"
-              title="Go to Home"
-            >
-              Harry
-            </button>
-          </div>
-          <div className="flex items-center space-x-6">
-            <button
-              onClick={() => setActiveSection('gallery')}
-              className={`text-white/80 hover:text-white ${activeSection === 'gallery' ? 'border-b-2' : ''}`}
-              title="View Gallery"
-            >
-              <Camera className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setActiveSection('research')}
-              className={`text-white/80 hover:text-white ${activeSection === 'research' ? 'border-b-2' : ''}`}
-              title="View Research"
-            >
-              <BookOpen className="w-5 h-5" />
-            </button>
-            <Volume2 className="text-white/80 w-6 h-6" />
-          </div>
-        </div>
-      </div>
 
       {/* Main Content */}
       <div
@@ -153,8 +118,6 @@ const Homepage: React.FC = () => {
             </div>
           </div>
         )}
-
-        {activeSection === 'research' && <ResearchSection />}
 
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
           <Scroll className="w-6 h-6 text-white/40 animate-bounce" />

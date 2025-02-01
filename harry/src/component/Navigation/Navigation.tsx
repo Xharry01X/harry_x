@@ -22,15 +22,7 @@ const Navigation: React.FC = () => {
           </Link>
         </div>
         <div className="flex items-center space-x-6">
-          <Link
-            to="/"
-            className={`text-white/80 hover:text-white transition-colors duration-300 ${
-              location.pathname === '/' ? 'border-b-2' : ''
-            }`}
-            title="Home"
-          >
-            <Home className="w-5 h-5" />
-          </Link>
+          
           <Link
             to="/gallery"
             className={`text-white/80 hover:text-white transition-colors duration-300 ${
