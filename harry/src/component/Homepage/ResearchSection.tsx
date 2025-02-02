@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Beaker, GitBranch, ExternalLink, ChevronDown, BookOpen } from 'lucide-react';
+import { Beaker, GitBranch, ExternalLink, ChevronDown, BookOpen, Mouse } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
+import MouseTracker from '../mouse/MouseTracker';
 
 interface ResearchItem {
   id: number;
@@ -86,6 +87,7 @@ const ResearchSection: React.FC<ResearchSectionProps> = ({ className = '' }) => 
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950">
       <AudioPlayer />
+      <MouseTracker/>
 
       {/* Background Video */}
       <video

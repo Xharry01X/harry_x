@@ -3,6 +3,7 @@ import { Cherry, Scroll } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
 import { quotes, socialLinks } from '../../quotes/Quotes';
 import { galleryImages } from '../../../gallery/Gallery';
+import MouseTracker from '../mouse/MouseTracker';
 
 interface HomepageProps {
   activeSection?: 'home' | 'gallery';
@@ -42,6 +43,7 @@ const Homepage: React.FC<HomepageProps> = ({ activeSection = 'home' }) => {
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950">
       <AudioPlayer />
+      <MouseTracker/>
 
       <video
         className="fixed inset-0 w-full h-full object-cover opacity-40"
