@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Cherry, Volume2, Scroll } from 'lucide-react';
+import { Cherry, Scroll } from 'lucide-react';
 import AudioPlayer from '../audioPlayer/AudioPlayer';
 import { quotes, socialLinks } from '../../quotes/Quotes';
 import { galleryImages } from '../../../gallery/Gallery';

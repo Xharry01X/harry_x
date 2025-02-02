@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Camera, BookOpen, Home } from 'lucide-react';
+import { Camera, BookOpen } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const location = useLocation();
