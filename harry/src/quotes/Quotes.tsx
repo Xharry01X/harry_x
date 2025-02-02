@@ -1,4 +1,4 @@
-import {  Github, Linkedin, Mail, Globe } from 'lucide-react';
+import {  Github, Linkedin, Mail, Globe, Twitter } from 'lucide-react';
 
 
 export const quotes = [
@@ -22,23 +22,23 @@ export const quotes = [
  export  const socialLinks = [
     {
       icon: <Github className="w-6 h-6" />,
-      href: "https://github.com/harry",
+      href: "https://github.com/Xharry01X",
       label: "GitHub"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
-      href: "https://linkedin.com/in/harry",
+      href: "https://www.linkedin.com/in/harshit-singh-13810b186/",
       label: "LinkedIn"
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      href: "mailto:harry@example.com",
+      href: "harshitsingh50621@gmail.com",
       label: "Email"
     },
     {
-      icon: <Globe className="w-6 h-6" />,
-      href: "#",
-      label: "Website"
+      icon: <Twitter className="w-6 h-6" />,
+      href: "https://x.com/harshit_techie",
+      label: "Twitter"
     }
   ];
 
