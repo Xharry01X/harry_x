@@ -109,7 +109,7 @@ const Homepage: React.FC<HomepageProps> = ({ activeSection = 'home' }) => {
                 <div key={index} className="relative group">
                   <img
                     src={image.src}
-                    alt={image.alt}
+                    alt={`Gallery Image ${index + 1}`}
                     className="w-full h-64 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                   />
                   
